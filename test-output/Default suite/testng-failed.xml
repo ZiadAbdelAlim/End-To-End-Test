@@ -6,7 +6,9 @@
       <class name="generalTest.EndtoEndTest">
         <methods>
           <include name="Checkout"/>
+          <include name="Shopping"/>
           <include name="Register"/>
+          <include name="InvokeBrowser"/>
           <include name="SetupEnv"/>
         </methods>
       </class> <!-- generalTest.EndtoEndTest -->
