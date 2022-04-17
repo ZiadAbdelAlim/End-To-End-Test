@@ -31,6 +31,7 @@ public class EndtoEndTest
 	@BeforeTest
 	public void SetupEnv()
 	{
+		
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Ziad\\Documents\\Automation\\Chrome Driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().deleteAllCookies();
@@ -46,12 +47,14 @@ public class EndtoEndTest
 	{	
 		
 		driver.get("https://demo.nopcommerce.com/");
+
 		
 	}
 	
 	
 	  @Test (priority = 2)
-	  public void Register() throws InterruptedException {
+	  public void Register() throws InterruptedException 
+	  {
 	  
 	  driver.findElement(By.linkText("Register")).click();
 	  driver.findElement(By.id("gender-male")).click();
@@ -187,9 +190,35 @@ public class EndtoEndTest
 
 	}
 	
+	@Test (priority = 5)
+	public void MyAccount() throws InterruptedException
+	{
+		String newpass = "123@passtest";
+		driver.findElement(By.linkText("My account")).click();
+		driver.findElement(By.linkText("Addresses")).click();
+		driver.findElement(By.linkText("Orders")).click();
+		driver.findElement(By.linkText("Downloadable products")).click();
+		driver.findElement(By.linkText("Back in stock subscriptions")).click();
+		driver.findElement(By.linkText("Reward points")).click();
+		
+		//Change Password Test
+		driver.findElement(By.linkText("Change password")).click();
+		driver.findElement(By.id("OldPassword")).sendKeys(pass);
+		driver.findElement(By.id("NewPassword")).sendKeys(newpass);
+		driver.findElement(By.id("ConfirmNewPassword")).sendKeys(newpass);
+		driver.findElement(By.xpath("//button[contains(text(),'Change password')]")).click();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.linkText("My product reviews")).click();
+		
+		
+	}
+	
 	@AfterTest
 	public void CloseBrowser()
 	{
+		
+		
 		
 		
 		driver.close();

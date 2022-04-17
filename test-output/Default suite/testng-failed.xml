@@ -8,7 +8,8 @@
           <include name="Checkout"/>
           <include name="Shopping"/>
           <include name="Register"/>
-          <include name="InvokeBrowser"/>
+          <include name="CloseBrowser"/>
+          <include name="MyAccount"/>
           <include name="SetupEnv"/>
         </methods>
       </class> <!-- generalTest.EndtoEndTest -->
