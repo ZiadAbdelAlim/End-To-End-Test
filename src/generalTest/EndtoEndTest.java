@@ -52,9 +52,9 @@ public class EndtoEndTest
 	}
 	
 	
-	  @Test (priority = 2)
-	  public void Register() throws InterruptedException 
-	  {
+	@Test (priority = 2)
+	public void Register() throws InterruptedException 
+	{
 	  
 	  driver.findElement(By.linkText("Register")).click();
 	  driver.findElement(By.id("gender-male")).click();
@@ -85,10 +85,25 @@ public class EndtoEndTest
 	  driver.navigate().back();
 	  
 	  
-	  }
-	
+	}
 	
 	@Test (priority = 3)
+	public void Login () 
+	{
+		  
+		driver.findElement(By.linkText("Log out")).click();
+		driver.findElement(By.linkText("Log in")).click();
+		
+		driver.findElement(By.id("Email")).sendKeys(email);
+		driver.findElement(By.id("Password")).sendKeys(pass);
+		
+		driver.findElement(By.xpath("//button[contains(text(),'Log in')]")).click();
+		  
+		  
+	}
+	
+	
+	@Test (priority = 4)
 	public void Shopping () throws InterruptedException
 	{
 		
@@ -138,7 +153,7 @@ public class EndtoEndTest
 		
 	}
 	
-	@Test (priority = 4)
+	@Test (priority = 5)
 	public void Checkout() throws InterruptedException
 	{
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -190,7 +205,7 @@ public class EndtoEndTest
 
 	}
 	
-	@Test (priority = 5)
+	@Test (priority = 6)
 	public void MyAccount() throws InterruptedException
 	{
 		String newpass = "123@passtest";
